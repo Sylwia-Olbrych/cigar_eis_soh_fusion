@@ -1,0 +1,11 @@
+/data/raw/zhang/*
+!/data/raw/zhang/.gitkeep
+/data/raw/mohtat/*
+!/data/raw/mohtat/.gitkeep
+/prepared_data/
+/models/
+/results/
+__pycache__/
+.venv/
+*.pyc
+.env
