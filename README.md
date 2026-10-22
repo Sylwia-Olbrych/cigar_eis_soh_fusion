@@ -1,21 +1,29 @@
 # CIGAR EIS-to-SOH
 
-A reproducible example of Zhang/Mohtat electrochemical impedance spectroscopy
-(EIS) preprocessing, CNN-BiLSTM SOH model training, and CIGAR-style prediction
-fusion. Run commands from the project root.
+A reproducible research pipeline for estimating lithium-ion battery
+state of health (SOH) from electrochemical impedance spectroscopy (EIS). It
+preprocesses the Zhang and Mohtat datasets, trains cell-grouped CNN-BiLSTM
+model ensembles, and combines their predictions using CIGAR-style fusion.
 
 ## Publication
 
-This repository is a demo of the work reported in [5]:
+This repository provides a simplified implementation of the pipeline developed and evaluated in the following publication:
 
-Olbrych et al. apply CIGAR to collective learning between CNN–BiLSTM models
-for lithium-ion battery state-of-health prediction.
+Olbrych, S., Tung, Z. X., Celik, S., Zhou, H. A., Abdelrazeq, A., Sauer, D. U., & Schmitt, R. H. (2026). Application of CIGAR for collective learning between CNN–BiLSTM models in lithium-ion battery state of health prediction. *Neural Computing and Applications, 38*(11). https://doi.org/10.1007/s00521-026-12144-6
+
+### Citation
+
+If you use this repository, its code, or the associated methodology in your research, please cite both the **original publication** and the **archived version of this repository on Zenodo**:
+
+- **Publication:** [Olbrych et al. (2026)](https://doi.org/10.1007/s00521-026-12144-6)
+- **Code repository:** [Zenodo DOI – to be added](https://zenodo.org/)
 
 ## Data
 
 Raw datasets are not included. Obtain them from their authoritative sources
-and follow their terms. Cite the exact releases and add any required
-acknowledgements when publishing results.
+and follow their terms. 
+
+If you use the datasets in your research, please acknowledge the original data sources by citing the corresponding references listed below: **[1, 2] for the Zhang dataset** and **[3, 4] for the Mohtat dataset**..
 
 - **Zhang:** The data originates from the publicly available dataset by Zhang
   et al. [1], which accompanies their study on lithium-ion battery degradation
@@ -100,8 +108,3 @@ https://doi.org/10.7302/7TW1-KC35
 analytics tool. *Journal of Power Sources, 615*, 235049.
 https://doi.org/10.1016/j.jpowsour.2024.235049
 
-[5] Olbrych, S., Tung, Z. X., Celik, S., Zhou, H. A., Abdelrazeq, A., Sauer,
-D. U., & Schmitt, R. H. (2026). Application of CIGAR for collective learning
-between CNN–BiLSTM models in lithium-ion battery state of health prediction.
-*Neural Computing and Applications, 38*(11).
-https://doi.org/10.1007/s00521-026-12144-6
