@@ -11,18 +11,15 @@ from sklearn.model_selection import GroupKFold
 from torch import nn
 from torch.utils.data import DataLoader, TensorDataset
 
-if __package__:
-    from .cigar_eis_soh import SOHRegressor
-else:
-    from cigar_eis_soh import SOHRegressor
+from src.model import SOHRegressor
 
 N_SPLITS = 5
 BATCH_SIZE = 128
 LEARNING_RATE = 1e-4
 HIDDEN_SIZE = 128
 NUM_LAYERS = 5
-ZHANG_EPOCHS = 500
-MOHTAT_EPOCHS = 800
+ZHANG_EPOCHS = 200
+MOHTAT_EPOCHS = 200
 INPUT_SEQ_LENGTH = 60
 TARGET_SEQ_LENGTH = 41
 
@@ -123,7 +120,7 @@ def train_ensemble(
                 mean_loss = total_loss / len(dataset)
                 print(
                     f"{data_path.stem} fold {fold + 1}/{N_SPLITS} "
-                    f"epoch {epoch + 1}/{epochs}: MSE={mean_loss:.6f}"
+                    f"epoch {epoch + 1}/{epochs}: training MSE={mean_loss:.6f}"
                 )
 
         checkpoint = {
