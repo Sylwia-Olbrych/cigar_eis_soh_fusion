@@ -6,13 +6,10 @@ fusion. Run commands from the project root.
 
 ## Publication
 
-This repository is a demo of the work reported in:
+This repository is a demo of the work reported in [5]:
 
-> S. Olbrych, Z. X. Tung, S. Celik, H. A. Zhou, A. Abdelrazeq, D. U. Sauer,
-> and R. H. Schmitt, “Application of CIGAR for collective learning between
-> CNN–BiLSTM models in lithium-ion battery state of health prediction,”
-> *Neural Computing and Applications*, vol. 38, no. 11 (2026).
-> [https://doi.org/10.1007/s00521-026-12144-6](https://doi.org/10.1007/s00521-026-12144-6)
+Olbrych et al. apply CIGAR to collective learning between CNN–BiLSTM models
+for lithium-ion battery state-of-health prediction.
 
 ## Data
 
@@ -21,17 +18,15 @@ and follow their terms. Cite the exact releases and add any required
 acknowledgements when publishing results.
 
 - **Zhang:** The data originates from the publicly available dataset by Zhang
-  et al. ([Zenodo, 2020](https://doi.org/10.5281/zenodo.3633835)), accompanying
-  their study on lithium-ion battery degradation analysis using impedance
-  spectroscopy ([Nature Communications, 2020](https://doi.org/10.1038/s41467-020-15235-7)).
+  et al. [1], which accompanies their study on lithium-ion battery degradation
+  analysis using impedance spectroscopy [2].
   The pipeline uses capacity and state-V EIS from
   `data/raw/zhang/Capacity_data/` and `data/raw/zhang/EIS_data/` for cells
   `25C01, 25C02, 25C03, 25C05, 25C06, 25C07, 35C01, 35C02, 45C01, 45C02`.
 - **Mohtat:** The source is the publicly available University of Michigan
-  pouch-cell voltage and expansion cyclic ageing dataset by Mohtat et al.
-  ([University of Michigan, 2021](https://doi.org/10.7302/7TW1-KC35)). For the
-  dissertation work, this project uses the curated EIS representation provided
-  by Blömeke et al. ([Journal of Power Sources, 2024](https://doi.org/10.1016/j.jpowsour.2024.235049)).
+  pouch-cell voltage and expansion cyclic ageing dataset by Mohtat et al. [3].
+  For the dissertation work, this project uses the curated EIS representation
+  provided by Blömeke et al. [4].
   Files are expected at `data/raw/mohtat/Mohtat_<number>.csv`, with columns
   `n`, `Capacity`, `SOC`, `EIS_Frequency`, `EIS_Z_abs`, and `EIS_Z_phase`.
   Default preprocessing selects SOC 0.9.
@@ -55,17 +50,20 @@ python cigar_eis_soh.py
 ```
 
 The default commands prepare both datasets, train five cell-grouped folds per
-domain (holding out Zhang `25C05` and Mohtat `MC21`), and run both fusion
-directions. Checkpoints are saved under `models/`; prediction CSVs and metric
-plots are saved under `results/`.
+domain for 100 epochs each (holding out Zhang `25C05` and Mohtat `MC21`), and
+run both fusion directions. Checkpoints are saved under `models/`; prediction
+CSVs and metric plots are saved under `results/`.
 
 Override data paths, holdout cells, output directories, epochs, device, and
 fusion options with each script's `--help`. For example:
 
 ```powershell
-python train_models.py --zhang-epochs 500 --mohtat-epochs 800 --device cpu
+python train_models.py --device cpu
 python cigar_eis_soh.py --help
 ```
+
+Both training runs default to the same 100-epoch setting for simplicity. Use
+`--zhang-epochs` and `--mohtat-epochs` to override these values.
 
 ## Project layout and method
 
@@ -80,3 +78,30 @@ five-layer bidirectional LSTM, and fold-specific target scaling based only on
 training cells. This is a compact research example, not evidence of validated
 cross-domain generalization. Check dataset terms, provenance, and licenses
 before redistribution or publication.
+
+## References
+
+[1] Zhang, Y., Tang, Q., Zhang, Y., Wang, J., Stimming, U., & Lee, A. A.
+(2020). *Identifying degradation patterns of lithium ion batteries from
+impedance spectroscopy using machine learning* [Data set]. Zenodo.
+https://doi.org/10.5281/zenodo.3633835
+
+[2] Zhang, Y., Tang, Q., Zhang, Y., Wang, J., Stimming, U., & Lee, A. A.
+(2020). Identifying degradation patterns of lithium ion batteries from
+impedance spectroscopy using machine learning. *Nature Communications, 11*(1).
+https://doi.org/10.1038/s41467-020-15235-7
+
+[3] Mohtat, P., Siegel, J. B., & Stefanopoulou, A. G. (2021). *UofM pouch cell
+voltage and expansion cyclic aging dataset* [Data set]. University of Michigan.
+https://doi.org/10.7302/7TW1-KC35
+
+[4] Blömeke, A., Kappelhoff, O., Wasylowski, D., Ringbeck, F., & Sauer, D. U.
+(2024). Open source online electrochemical impedance spectroscopy data
+analytics tool. *Journal of Power Sources, 615*, 235049.
+https://doi.org/10.1016/j.jpowsour.2024.235049
+
+[5] Olbrych, S., Tung, Z. X., Celik, S., Zhou, H. A., Abdelrazeq, A., Sauer,
+D. U., & Schmitt, R. H. (2026). Application of CIGAR for collective learning
+between CNN–BiLSTM models in lithium-ion battery state of health prediction.
+*Neural Computing and Applications, 38*(11).
+https://doi.org/10.1007/s00521-026-12144-6
