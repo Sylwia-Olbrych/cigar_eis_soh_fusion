@@ -15,7 +15,7 @@ Olbrych, S., Tung, Z. X., Celik, S., Zhou, H. A., Abdelrazeq, A., Sauer, D. U., 
 If you use this repository, its code, or the associated methodology in your research, please cite both the **original publication** and the **archived version of this repository on Zenodo**:
 
 - **Publication:** [Olbrych et al. (2026)](https://doi.org/10.1007/s00521-026-12144-6)
-- **Archived code:** [Olbrych-Nasuta et al. (2026)](https://zenodo.org/10.5281/zenodo.23623866)
+- **Archived code:** [Olbrych-Nasuta et al. (2026)](https://doi.org/10.5281/zenodo.23623866))
 
 ## Data
 
