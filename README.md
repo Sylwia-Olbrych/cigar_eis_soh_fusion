@@ -1,9 +1,8 @@
-# CIGAR EIS-to-SOH
+# Collective Model Fusion with CIGAR for EIS-Based Lithium-Ion Battery State-of-Health Estimation
 
-A reproducible research pipeline for estimating lithium-ion battery
-state of health (SOH) from electrochemical impedance spectroscopy (EIS). It
-preprocesses the Zhang and Mohtat datasets, trains cell-grouped CNN-BiLSTM
-model ensembles, and combines their predictions using CIGAR-style fusion.
+The implementation serves as a compact demonstration of collective model fusion with CIGAR [1] for lithium-ion battery state-of-health (SoH) estimation using electrochemical impedance spectroscopy (EIS).
+It reproduces the main preprocessing, model-training, and fusion steps in a reduced workflow, but is not intended to reproduce the dissertation results numerically.
+Instead, it provides an accessible example of the corresponding experimental procedure and supports reproducibility of the underlying methodology.
 
 ## Publication
 
@@ -16,7 +15,6 @@ Olbrych, S., Tung, Z. X., Celik, S., Zhou, H. A., Abdelrazeq, A., Sauer, D. U., 
 If you use this repository, its code, or the associated methodology in your research, please cite both the **original publication** and the **archived version of this repository on Zenodo**:
 
 - **Publication:** [Olbrych et al. (2026)](https://doi.org/10.1007/s00521-026-12144-6)
-- **Code repository:** [Zenodo DOI – to be added](https://zenodo.org/)
 
 ## Data
 
@@ -26,15 +24,15 @@ and follow their terms.
 If you use the datasets in your research, please acknowledge the original data sources by citing the corresponding references listed below: **[1, 2] for the Zhang dataset** and **[3, 4] for the Mohtat dataset**..
 
 - **Zhang:** The data originates from the publicly available dataset by Zhang
-  et al. [1], which accompanies their study on lithium-ion battery degradation
-  analysis using impedance spectroscopy [2].
+  et al. [2], which accompanies their study on lithium-ion battery degradation
+  analysis using impedance spectroscopy [3].
   The pipeline uses capacity and state-V EIS from
   `data/raw/zhang/Capacity_data/` and `data/raw/zhang/EIS_data/` for cells
   `25C01, 25C02, 25C03, 25C05, 25C06, 25C07, 35C01, 35C02, 45C01, 45C02`.
 - **Mohtat:** The source is the publicly available University of Michigan
-  pouch-cell voltage and expansion cyclic ageing dataset by Mohtat et al. [3].
+  pouch-cell voltage and expansion cyclic ageing dataset by Mohtat et al. [4].
   For the dissertation work, this project uses the curated EIS representation
-  provided by Blömeke et al. [4].
+  provided by Blömeke et al. [5].
   Files are expected at `data/raw/mohtat/Mohtat_<number>.csv`, with columns
   `n`, `Capacity`, `SOC`, `EIS_Frequency`, `EIS_Z_abs`, and `EIS_Z_phase`.
   Default preprocessing selects SOC 0.9.
@@ -89,21 +87,25 @@ before redistribution or publication.
 
 ## References
 
-[1] Zhang, Y., Tang, Q., Zhang, Y., Wang, J., Stimming, U., & Lee, A. A.
+[1] Hoang, M., Hoang, N., Low, B. K. H., & Kingsford, C.
+(2019). Collective model fusion for multiple black-box experts. In Proceedings of the 36th International Conference on Machine Learning (Vol. 97, pp. 2742–2750). Proceedings of Machine Learning Research.
+https://proceedings.mlr.press/v97/hoang19a.html
+
+[2] Zhang, Y., Tang, Q., Zhang, Y., Wang, J., Stimming, U., & Lee, A. A.
 (2020). *Identifying degradation patterns of lithium ion batteries from
 impedance spectroscopy using machine learning* [Data set]. Zenodo.
 https://doi.org/10.5281/zenodo.3633835
 
-[2] Zhang, Y., Tang, Q., Zhang, Y., Wang, J., Stimming, U., & Lee, A. A.
+[3] Zhang, Y., Tang, Q., Zhang, Y., Wang, J., Stimming, U., & Lee, A. A.
 (2020). Identifying degradation patterns of lithium ion batteries from
 impedance spectroscopy using machine learning. *Nature Communications, 11*(1).
 https://doi.org/10.1038/s41467-020-15235-7
 
-[3] Mohtat, P., Siegel, J. B., & Stefanopoulou, A. G. (2021). *UofM pouch cell
+[4] Mohtat, P., Siegel, J. B., & Stefanopoulou, A. G. (2021). *UofM pouch cell
 voltage and expansion cyclic aging dataset* [Data set]. University of Michigan.
 https://doi.org/10.7302/7TW1-KC35
 
-[4] Blömeke, A., Kappelhoff, O., Wasylowski, D., Ringbeck, F., & Sauer, D. U.
+[5] Blömeke, A., Kappelhoff, O., Wasylowski, D., Ringbeck, F., & Sauer, D. U.
 (2024). Open source online electrochemical impedance spectroscopy data
 analytics tool. *Journal of Power Sources, 615*, 235049.
 https://doi.org/10.1016/j.jpowsour.2024.235049
