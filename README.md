@@ -1,4 +1,4 @@
-# Collective Model Fusion with CIGAR for EIS-Based Lithium-Ion Battery State-of-Health Estimation
+# Collective Model Fusion with CIGAR for EIS-Based Lithium-Ion Battery SoH Estimation
 
 The implementation serves as a compact demonstration of collective model fusion with CIGAR [1] for lithium-ion battery state-of-health (SoH) estimation using electrochemical impedance spectroscopy (EIS).
 It reproduces the main preprocessing, model-training, and fusion steps in a reduced workflow, but is not intended to reproduce the dissertation results numerically.
